@@ -1,0 +1,29 @@
+.tags {
+  padding: 0;
+  margin: 0;
+  overflow: scroll;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+
+  &__tag {
+    @include transition(all .5s ease-in-out);
+    color: $contrast-color;
+    border-bottom: 1px solid darken($secondary-color, 10%);
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 7px 10px;
+
+    &:hover {
+      color: $contrast-color;
+      background: $primary-color;
+    }
+  }
+
+  &__tag.active {
+    background: $primary-color;
+    color: $contrast-color;
+  }
+}

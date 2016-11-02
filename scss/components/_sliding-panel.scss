@@ -1,0 +1,22 @@
+.sliding-panel {
+  &__container{
+    height: calc(100% - 65px);
+    left: 0;
+    position: absolute;
+    top: 0;
+    top: 65px;
+    width: 100%;
+  }
+
+  &__hidden {
+    background: $secondary-color;
+    float: left;
+    height: 100%;
+    height: 100%;
+    left: -220px;
+    overflow: hidden;
+    position: absolute;
+    width: 220px;
+    z-index:2;
+  }
+}

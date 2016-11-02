@@ -1,0 +1,72 @@
+.hamburguer {
+  @include transform(rotate(0deg) scale(.5));
+  @include transition(.5s ease-in-out);
+  @include transform-origin(center);
+  background: 0 0;
+  background: transparent;
+  border: 10px solid transparent;
+  cursor: pointer;
+  height: 65px;
+  left: 0;
+  margin: 0;
+  outline: none;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  width: 80px;
+  z-index: 9000000;
+
+  span:nth-child(1) {
+    @include transform-origin(left center);
+    top: 0;
+  }
+
+  span:nth-child(2) {
+    @include transform-origin(left center);
+    top: 18px;
+  }
+
+  span:nth-child(3) {
+    @include transform-origin(left center);
+    top: 36px;
+  }
+
+  &.open {
+    background: transparent;
+    border: 10px solid transparent;
+
+    span:nth-child(1) {
+      @include transform(rotate(45deg));
+      background: $primary-color;
+      left: 8px;
+      top: -3px;
+    }
+
+    span:nth-child(2) {
+      background: $primary-color;
+      opacity: 0;
+      width: 0%;
+    }
+
+    span:nth-child(3) {
+      @include transform(rotate(-45deg));
+      background: $primary-color;
+      left: 8px;
+      top: 39px;
+    }
+  }
+
+
+  span {
+    @include transform(rotate(0deg));
+    @include transition(.25s ease-in-out);
+    background: $primary-color;
+    border-radius: 9px;
+    display: block;
+    height: 9px;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    width: 100%;
+  }
+}

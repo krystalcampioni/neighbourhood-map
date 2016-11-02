@@ -1,0 +1,14 @@
+.flash-message {
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  background: $primary-color;
+  padding: 10px;
+  color: $contrast-color;
+  text-align: center;
+  top: 65px;
+  
+  &:empty {
+    display: none;
+  }
+}

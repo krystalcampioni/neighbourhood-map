@@ -1,0 +1,41 @@
+.infowindow {
+
+  &__likes,
+  &__rating {
+    float: left;
+    width: 90px;
+    margin-bottom: 5px;
+  }
+
+  &__rating {
+    margin-top: 5px;
+  }
+
+  &__url {
+    border-top: 1px solid $secondary-color;
+    clear: both;
+    color: darken($primary-color, 10%);
+    display: block;
+    padding: 5px 0 0;
+    text-decoration: none;
+    width: 100%;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  &__name {
+    font-size: 16px;
+    margin: 0;
+    padding: 5px 0;
+    color: $secondary-color;
+  }
+
+  &__heart {
+    float: left;
+    margin-right: 6px;
+    padding-top: 2px;
+    width: 15px;
+  }
+}
