@@ -114,11 +114,11 @@ var viewModel = function() {
 
     // if the restaurant has infos about likes, ratings and urls, display them, otherwise don't
 
-    var infowindowLikes = (self.currentMapItem.likes != "") ? "<img src='images/heart.svg'class='infowindow__heart'/>" + self.currentMapItem.likes : "";
+    var infowindowLikes = (self.currentMapItem.likes !== "") ? "<img src='images/heart.svg'class='infowindow__heart'/>" + self.currentMapItem.likes : "";
 
-    var infowindowRating = (self.currentMapItem.rating != "") ? self.currentMapItem.rating : "";
+    var infowindowRating = (self.currentMapItem.rating !== "") ? self.currentMapItem.rating : "";
 
-    var infowindowUrl = (self.currentMapItem.url != "") ?
+    var infowindowUrl = (self.currentMapItem.url !== "") ?
       ("<a target='_blank' class='infowindow__url' href='" + self.currentMapItem.url + "'>" + self.currentMapItem.url + "</a>") :
       ("");
 
@@ -127,7 +127,7 @@ var viewModel = function() {
       "<div class='infowindow__likes'>" + infowindowLikes + "</div>" +
       "<div class='infowindow__rating' id='rateYo'>" + infowindowRating + "</div>" +
       infowindowUrl
-    )
+    );
 
     infowindow.setContent(formattedInfoWindow);
     infowindow.open(map, location);
