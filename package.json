@@ -1,5 +1,5 @@
 {
-  "name": "SP Sushi",
+  "name": "sp-sushi",
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
@@ -10,6 +10,7 @@
     "node-neat": "^1.7.2"
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.13",
     "gulp-concat": "^2.6.0",
     "gulp-imagemin": "^3.0.3",

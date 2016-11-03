@@ -1,4 +1,4 @@
-var viewModel = function() {
+var ViewModel = function() {
 
   var self = this;
 
@@ -12,14 +12,17 @@ var viewModel = function() {
       success: function(data) {
 
         var result = data.response.venue;
-
+        currentMarker.error = "";
         currentMarker.likes = result.hasOwnProperty('likes') ? result.likes.summary : "";
         currentMarker.rating = result.hasOwnProperty('rating') ? result.rating : "";
         currentMarker.url = result.hasOwnProperty('url') ? result.url : "";
       },
 
       error: function(e) {
-        self.errorDisplay("Could not load data from Foursquare. Please try again later.");
+        currentMarker.error = "Could not load data from Foursquare. Please try again later.";
+        currentMarker.likes = "";
+        currentMarker.rating = "";
+        currentMarker.url = "";
       }
     });
   };
@@ -53,7 +56,7 @@ var viewModel = function() {
     marker.setAnimation(google.maps.Animation.BOUNCE);
     setTimeout(function() {
       marker.setAnimation(null);
-    }, 600);
+    }, 700);
   };
 
   // Loop through all the markers, add infos from the API and  call the setSelected function on click
@@ -114,7 +117,7 @@ var viewModel = function() {
 
     // if the restaurant has infos about likes, ratings and urls, display them, otherwise don't
 
-    var infowindowLikes = (self.currentMapItem.likes !== "") ? "<img src='images/heart.svg'class='infowindow__heart'/>" + self.currentMapItem.likes : "";
+    var infowindowLikes = (self.currentMapItem.likes !== "" ) ? "<img src='images/heart.svg'class='infowindow__heart'/>" + self.currentMapItem.likes : "";
 
     var infowindowRating = (self.currentMapItem.rating !== "") ? self.currentMapItem.rating : "";
 
@@ -124,6 +127,7 @@ var viewModel = function() {
 
     var formattedInfoWindow = (
       "<h5 class='infowindow__name'>" + self.currentMapItem.name + "</h5>" +
+      "<span class='infowindow__error'>" + self.currentMapItem.error + "</span>" +
       "<div class='infowindow__likes'>" + infowindowLikes + "</div>" +
       "<div class='infowindow__rating' id='rateYo'>" + infowindowRating + "</div>" +
       infowindowUrl
@@ -134,12 +138,14 @@ var viewModel = function() {
     self.animateMarker(location);
 
 
-    // Use the rateYo plugin to convert the number of the restaurant rating into stars
-    $("#rateYo").rateYo({
-      starWidth: "10px",
-      rating: self.currentMapItem.rating,
-      maxValue: 10,
-    });
+    // If the infowindow has a rating number use the rateYo plugin to convert the number of the restaurant rating into stars
+    if ( infowindowRating != "") {
+      $("#rateYo").rateYo({
+        starWidth: "10px",
+        rating: self.currentMapItem.rating,
+        maxValue: 10,
+      });
+    }
 
   };
 

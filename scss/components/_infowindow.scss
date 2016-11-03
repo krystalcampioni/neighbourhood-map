@@ -1,5 +1,9 @@
 .infowindow {
 
+  &__error {
+    color: red;
+  }
+
   &__likes,
   &__rating {
     float: left;

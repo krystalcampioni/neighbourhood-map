@@ -12,7 +12,7 @@ function initMap() {
     }
   );
   infowindow = new google.maps.InfoWindow();
-  ko.applyBindings(new viewModel());
+  ko.applyBindings(new ViewModel());
 }
 
 function mapsError() {
