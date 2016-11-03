@@ -17,48 +17,48 @@ var paths = {
     content: ['index.html']
 }
 
-// Compiles scss files and outputs minified file to build/css/*.css
+// Compiles scss files and outputs minified file to docs/css/*.css
 gulp.task('styles', function() {
     return gulp.src(paths.styles)
       .pipe(sass({
           includePaths: ['styles'].concat(neat)
       }))
-      .pipe(gulp.dest('./build/css'))
+      .pipe(gulp.dest('./docs/css'))
       .pipe(cleanCSS({debug: true}, function(details) {
           console.log(details.name + ': ' + details.stats.originalSize);
           console.log(details.name + ': ' + details.stats.minifiedSize);
       }))
-      .pipe(gulp.dest('./build/css/'));
+      .pipe(gulp.dest('./docs/css/'));
 });
 
 
-// Concats & minifies js files and outputs them to build/js/app.js
+// Concats & minifies js files and outputs them to docs/js/app.js
 gulp.task('scripts', function() {
     return gulp.src(paths.scripts)
         .pipe(sourcemaps.init())
             .pipe(uglify())
             .pipe(concatify('app.js'))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./build/js/'));
+        .pipe(gulp.dest('./docs/js/'));
 });
 
-// Minifies our HTML files and outputs them to build/*.html
+// Minifies our HTML files and outputs them to docs/*.html
 gulp.task('content', function() {
     return gulp.src(paths.content)
         .pipe(minifyhtml({
             empty: true,
             quotes: true
         }))
-        .pipe(gulp.dest('./build'))
+        .pipe(gulp.dest('./docs'))
 });
 
-// Optimizes our image files and outputs them to build/image/*
+// Optimizes our image files and outputs them to docs/image/*
 gulp.task('images', function() {
     return gulp.src(paths.images)
                 .pipe(imagemin({
                     optimizationLevel: 5
                 }))
-                .pipe(gulp.dest('./build/images'))
+                .pipe(gulp.dest('./docs/images'))
 })
 
 // Watches for changes to our files and executes required scripts
@@ -71,7 +71,7 @@ gulp.task('watch', function() {
 
 // Launches a test webserver
 gulp.task('webserver', function() {
-    gulp.src('build')
+    gulp.src('docs')
         .pipe(webserver({
             livereload: true,
             port: 1111
