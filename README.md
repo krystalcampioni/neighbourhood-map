@@ -1,6 +1,9 @@
 ## SP Sushi App
 
-This is an app that gathers data about japanese restaurants in São Paulo from the foursquare API and displays them as a filterable list of markers on a Google Map.
+Utilizing the API's from Google Maps and Foursquare this application helps users to find the best japanese restaurants in São Paulo. It gathers data about the restaurants from the foursquare API and displays them as a filterable list of _temaki_ markers on a map from Google Maps. It also converts the rating number from Foursquare into a 5 star rating using RateYo.
+
+![SP Sushi Screenshot](https://krystalcampioni.github.io/SP-Sushi/images/sp-sushi-screenshot.png)
+
 
 >This app was built for the Neighborhood Map project of the Udacity Front-end Nanodegree.
 
@@ -14,7 +17,7 @@ This is an app that gathers data about japanese restaurants in São Paulo from t
 
 #### Additional Info
 
-This project was built using [Gulp](http://gulpjs.com/) to concat and minify the JS, HTML and CSS files and compress image files. The files for production are output to the Build folder.
+This project was built using [Gulp](http://gulpjs.com/) to concat and minify the JS, HTML and CSS files and compress image files. The files for production are output to the `Docs` folder.
 
 Other tools used:
 - [KnockoutJS](http://knockoutjs.com/)
