@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $('.hamburguer, .tags').click(function(){
 
-    $(this).toggleClass('open');
+    $('.hamburguer').toggleClass('open');
     var hidden = $('.sliding-panel__container');
 
     if (hidden.hasClass('visible')){
